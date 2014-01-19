@@ -1,84 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>composer/installers by shama</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="composer/installers : A Multi-Framework Composer Library Installer" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>composer/installers</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>composer/installers</h1>
-        <p>A Multi-Framework Composer Library Installer</p>
-        <p class="view"><a href="https://github.com/composer/installers">View the Project on GitHub <small>composer/installers</small></a></p>
-        <ul>
-          <li><a href="https://github.com/composer/installers/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/composer/installers/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/composer/installers">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>A Multi-Framework <a href="http://getcomposer.org">Composer</a> Library Installer</h1>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/michaelm260/installers">View on GitHub</a>
+
+          <h1 id="project_title">composer/installers</h1>
+          <h2 id="project_tagline">A Multi-Framework Composer Library Installer</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/michaelm260/installers/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/michaelm260/installers/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="a-multi-framework-composer-library-installer" class="anchor" href="#a-multi-framework-composer-library-installer"><span class="octicon octicon-link"></span></a>A Multi-Framework <a href="http://getcomposer.org">Composer</a> Library Installer</h1>
 
 <p><a href="http://travis-ci.org/composer/installers"><img src="https://secure.travis-ci.org/composer/installers.png" alt="Build Status"></a></p>
 
 <p>This is for PHP package authors to require in their <code>composer.json</code>. It will
-magically install their package to the correct location based on the specified
-package type.</p>
+install their package to the correct location based on the specified package
+type.</p>
 
-<p><strong>Current Supported Package Types</strong>:</p>
+<p>The goal of <code>installers</code> is to be a simple package type to install path map.
+Users can also customize the install path per package and package authors can
+modify the package name upon installing.</p>
 
-<ul>
-<li>AGL           <code>agl-</code>
-</li>
-<li>CakePHP 2+    <code>cakephp-</code>
-</li>
-<li>CodeIgniter   <code>codeigniter-</code>
-</li>
-<li>concrete5     <code>concrete5-</code>
-</li>
-<li>Drupal        <code>drupal-</code>
-</li>
-<li>FuelPHP       <code>fuelphp-</code>
-</li>
-<li>Joomla        <code>joomla-</code>
-</li>
-<li>Kohana        <code>kohana-</code>
-</li>
-<li>Laravel       <code>laravel-</code>
-</li>
-<li>Lithium       <code>lithium-</code>
-</li>
-<li>Magento       <code>magento-</code>
-</li>
-<li>Mako          <code>mako-</code>
-</li>
-<li>MediaWiki     <code>mediawiki-</code>
-</li>
-<li>phpBB         <code>phpbb-</code>
-</li>
-<li>PPI           <code>ppi-</code>
-</li>
-<li>SilverStripe  <code>silverstripe-</code>
-</li>
-<li>Symfony1      <code>symfony1-</code>
-</li>
-<li>TYPO3 Flow    <code>typo3-flow-</code>
-</li>
-<li>WordPress     <code>wordpress-</code>
-</li>
-<li>Zend          <code>zend-</code>
-</li>
-</ul><p><strong>Natively Supported Frameworks</strong>:</p>
+<p><code>installers</code> isn't intended on replacing all custom installers. If your
+package requires special installation handling then by all means, create a
+custom installer to handle it.</p>
+
+<p><strong>Natively Supported Frameworks</strong>:</p>
 
 <p>The following frameworks natively work with Composer and will be
 installed to the default <code>vendor</code> directory. <code>composer/installers</code>
@@ -87,14 +57,177 @@ is not needed to install packages with these frameworks:</p>
 <ul>
 <li>Aura</li>
 <li>Symfony2</li>
-</ul><h2>Example <code>composer.json</code> File</h2>
+<li>Yii</li>
+</ul><p><strong>Current Supported Package Types</strong>:</p>
+
+<blockquote>
+<p>Stable types are marked as <strong>bold</strong>, this means that installation paths
+for those type will not be changed. Any adjustment for those types would
+require creation of brand new type that will cover required changes.</p>
+</blockquote>
+
+<table>
+<thead><tr>
+<th>Framework</th>
+<th>Types</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>AGL</td>
+<td><code>agl-module</code></td>
+</tr>
+<tr>
+<td>AnnotateCms</td>
+<td>
+<code>annotatecms-module</code><br><code>annotatecms-component</code><br><code>annotatecms-service</code>
+</td>
+</tr>
+<tr>
+<td>CakePHP 2+</td>
+<td><strong><code>cakephp-plugin</code></strong></td>
+</tr>
+<tr>
+<td>CodeIgniter</td>
+<td>
+<code>codeigniter-library</code><br><code>codeigniter-third-party</code><br><code>codeigniter-module</code>
+</td>
+</tr>
+<tr>
+<td>concrete5</td>
+<td>
+<code>concrete5-block</code><br><code>concrete5-package</code><br><code>concrete5-theme</code>
+</td>
+</tr>
+<tr>
+<td>Croogo</td>
+<td>
+<code>croogo-plugin</code><br><code>croogo-theme</code>
+</td>
+</tr>
+<tr>
+<td>Drupal</td>
+<td>
+<b><code>drupal-module</code><br><code>drupal-theme</code></b><br><code>drupal-profile</code><br><code>drupal-drush</code>
+</td>
+</tr>
+<tr>
+<td>Elgg</td>
+<td><code>elgg-plugin</code></td>
+</tr>
+<tr>
+<td>FuelPHP v1.x</td>
+<td>
+<code>fuel-module</code><br><code>fuel-package</code>
+</td>
+</tr>
+<tr>
+<td>Hurad</td>
+<td>
+<code>hurad-plugin</code><br><code>hurad-theme</code>
+</td>
+</tr>
+<tr>
+<td>Joomla</td>
+<td>
+<code>joomla-component</code><br><code>joomla-module</code><br><code>joomla-template</code><br><code>joomla-plugin</code><br><code>joomla-library</code>
+</td>
+</tr>
+<tr>
+<td>Kohana</td>
+<td><strong><code>kohana-module</code></strong></td>
+</tr>
+<tr>
+<td>Laravel</td>
+<td><code>laravel-library</code></td>
+</tr>
+<tr>
+<td>Lithium</td>
+<td><strong><code>lithium-library</code><br><code>lithium-source</code></strong></td>
+</tr>
+<tr>
+<td>Magento</td>
+<td>
+<code>magento-library</code><br><code>magento-skin</code><br><code>magento-theme</code>
+</td>
+</tr>
+<tr>
+<td>Mako</td>
+<td><code>mako-package</code></td>
+</tr>
+<tr>
+<td>MODX Evo</td>
+<td>
+<code>modxevo-snippet</code><br><code>modxevo-plugin</code><br><code>modxevo-module</code><br><code>modxevo-template</code><br><code>modxevo-lib</code>
+</td>
+</tr>
+<tr>
+<td>MediaWiki</td>
+<td><code>mediawiki-extension</code></td>
+</tr>
+<tr>
+<td>OXID</td>
+<td><code>oxid-module</code></td>
+</tr>
+<tr>
+<td>MODULEWork</td>
+<td><code>modulework-module</code></td>
+</tr>
+<tr>
+<td>Piwik</td>
+<td><code>piwik-plugin</code></td>
+</tr>
+<tr>
+<td>phpBB</td>
+<td>
+<code>phpbb-extension</code><br><code>phpbb-style</code><br><code>phpbb-language</code>
+</td>
+</tr>
+<tr>
+<td>PPI</td>
+<td><strong><code>ppi-module</code></strong></td>
+</tr>
+<tr>
+<td>SilverStripe</td>
+<td>
+<code>silverstripe-module</code><br><code>silverstripe-theme</code>
+</td>
+</tr>
+<tr>
+<td>symfony1</td>
+<td><strong><code>symfony1-plugin</code></strong></td>
+</tr>
+<tr>
+<td>TYPO3 Flow</td>
+<td>
+<code>typo3-flow-package</code><br><code>typo3-flow-framework</code><br><code>typo3-flow-plugin</code><br><code>typo3-flow-site</code><br><code>typo3-flow-boilerplate</code><br><code>typo3-flow-build</code>
+</td>
+</tr>
+<tr>
+<td>TYPO3 CMS</td>
+<td><code>typo3-cms-extension</code></td>
+</tr>
+<tr>
+<td>WordPress</td>
+<td>
+<b><code>wordpress-plugin</code><br><code>wordpress-theme</code></b><br><code>wordpress-muplugin</code>
+</td>
+</tr>
+<tr>
+<td>Zend</td>
+<td>
+<code>zend-library</code><br><code>zend-extra</code><br><code>zend-module</code>
+</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="example-composerjson-file" class="anchor" href="#example-composerjson-file"><span class="octicon octicon-link"></span></a>Example <code>composer.json</code> File</h2>
 
 <p>This is an example for a CakePHP plugin. The only important parts to set in your
 composer.json file are <code>"type": "cakephp-plugin"</code> which describes what your
 package is and <code>"require": { "composer/installers": "~1.0" }</code> which tells composer
 to load the custom installers.</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
     <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"you/ftp"</span><span class="p">,</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"cakephp-plugin"</span><span class="p">,</span>
     <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
@@ -103,168 +236,18 @@ to load the custom installers.</p>
 <span class="p">}</span>
 </pre></div>
 
-<p>This would install your package to the <code>app/Plugin/Ftp/</code> folder of a CakePHP app
+<p>This would install your package to the <code>Plugin/Ftp/</code> folder of a CakePHP app
 when a user runs <code>php composer.phar install</code>.</p>
 
 <p>So submit your packages to <a href="http://packagist.org">packagist.org</a>!</p>
 
-<h2>Current Supported Types</h2>
-
-<ul>
-<li>AGL
-
-<ul>
-<li>agl-module</li>
-</ul>
-</li>
-<li>CakePHP
-
-<ul>
-<li><strong>cakephp-plugin</strong></li>
-</ul>
-</li>
-<li>CodeIgniter
-
-<ul>
-<li>codeigniter-library</li>
-<li>codeigniter-third-party</li>
-<li>codeigniter-module</li>
-</ul>
-</li>
-<li>concrete5
-
-<ul>
-<li>concrete5-block</li>
-<li>concrete5-package</li>
-<li>concrete5-theme</li>
-</ul>
-</li>
-<li>Drupal
-
-<ul>
-<li><strong>drupal-module</strong></li>
-<li><strong>drupal-theme</strong></li>
-<li>drupal-profile</li>
-<li>drupal-drush</li>
-</ul>
-</li>
-<li>FuelPHP
-
-<ul>
-<li>fuelphp-module</li>
-</ul>
-</li>
-<li>Joomla
-
-<ul>
-<li>joomla-component</li>
-<li>joomla-module</li>
-<li>joomla-template</li>
-<li>joomla-plugin</li>
-<li>joomla-library</li>
-</ul>
-</li>
-<li>Kohana
-
-<ul>
-<li><strong>kohana-module</strong></li>
-</ul>
-</li>
-<li>Laravel
-
-<ul>
-<li>laravel-library</li>
-</ul>
-</li>
-<li>Lithium
-
-<ul>
-<li><strong>lithium-library</strong></li>
-<li><strong>lithium-source</strong></li>
-</ul>
-</li>
-<li>Magento
-
-<ul>
-<li>magento-library</li>
-<li>magento-skin</li>
-<li>magento-theme</li>
-</ul>
-</li>
-<li>Mako
-
-<ul>
-<li>mako-package</li>
-</ul>
-</li>
-<li>MediaWiki
-
-<ul>
-<li>mediawiki-extension</li>
-</ul>
-</li>
-<li>phpBB
-
-<ul>
-<li>phpbb-extension</li>
-<li>phpbb-style</li>
-<li>phpbb-language</li>
-</ul>
-</li>
-<li>PPI
-
-<ul>
-<li><strong>ppi-module</strong></li>
-</ul>
-</li>
-<li>SilverStripe
-
-<ul>
-<li>silverstripe-module</li>
-<li>silverstripe-theme</li>
-</ul>
-</li>
-<li>symfony1
-
-<ul>
-<li><strong>symfony1-plugin</strong></li>
-</ul>
-</li>
-<li>TYPO3 Flow
-
-<ul>
-<li>typo3-flow-package</li>
-<li>typo3-flow-framework</li>
-<li>typo3-flow-plugin</li>
-<li>typo3-flow-site</li>
-<li>typo3-flow-build</li>
-<li>typo3-flow-yourlib</li>
-</ul>
-</li>
-<li>WordPress
-
-<ul>
-<li><strong>wordpress-plugin</strong></li>
-<li><strong>wordpress-theme</strong></li>
-</ul>
-</li>
-<li>Zend
-
-<ul>
-<li>zend-library</li>
-<li>zend-extra</li>
-</ul>
-</li>
-</ul><p>Types in <strong>bold</strong> have been marked stable and you can rely on those install
-paths to not change. A new type must be created if any adjustments are
-requested for an install path.</p>
-
-<h2>Custom Install Paths</h2>
+<h2>
+<a name="custom-install-paths" class="anchor" href="#custom-install-paths"><span class="octicon octicon-link"></span></a>Custom Install Paths</h2>
 
 <p>If you are consuming a package that uses the <code>composer/installers</code> you can
 override the install path with the following extra in your <code>composer.json</code>:</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
     <span class="nt">"extra"</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">"installer-paths"</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">"your/custom/path/{$name}/"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"shama/ftp"</span><span class="p">,</span> <span class="s2">"vendor/package"</span><span class="p">]</span>
@@ -273,10 +256,22 @@ override the install path with the following extra in your <code>composer.json</
 <span class="p">}</span>
 </pre></div>
 
-<p>This would use your custom path for each of the listed packages. The available
-variables to use in your paths are: <code>${name}</code>, <code>{$vendor}</code>, <code>{$type}</code>.</p>
+<p>A package type can have a custom installation path with a <code>type:</code> prefix.</p>
 
-<h2>Custom Install Names</h2>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"extra"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"installer-paths"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"your/custom/path/{$name}/"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"type:wordpress-plugin"</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This would use your custom path for each of the listed packages. The available
+variables to use in your paths are: <code>{$name}</code>, <code>{$vendor}</code>, <code>{$type}</code>.</p>
+
+<h2>
+<a name="custom-install-names" class="anchor" href="#custom-install-names"><span class="octicon octicon-link"></span></a>Custom Install Names</h2>
 
 <p>If you're a package author and need your package to be named differently when
 installed consider using the <code>installer-name</code> extra.</p>
@@ -288,7 +283,7 @@ package author actually need the package to be named and installed to
 <code>Plugin/Ftp</code>. Using the following config within your <strong>package</strong> <code>composer.json</code>
 will allow this:</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
     <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"shama/cakephp-ftp"</span><span class="p">,</span>
     <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"cakephp-plugin"</span><span class="p">,</span>
     <span class="nt">"extra"</span><span class="p">:</span> <span class="p">{</span>
@@ -300,7 +295,8 @@ will allow this:</p>
 <p>Please note the name entered into <code>installer-name</code> will be the final and will
 not be inflected.</p>
 
-<h2>Contribute!</h2>
+<h2>
+<a name="contribute" class="anchor" href="#contribute"><span class="octicon octicon-link"></span></a>Contribute!</h2>
 
 <ul>
 <li>
@@ -316,13 +312,30 @@ which we borrowed from Symfony.</p>
 
 <p>If you would like to help, please take a look at the list of
 <a href="https://github.com/composer/installers/issues">issues</a>.</p>
+
+<h3>
+<a name="should-we-allow-dynamic-package-types-or-paths-no" class="anchor" href="#should-we-allow-dynamic-package-types-or-paths-no"><span class="octicon octicon-link"></span></a>Should we allow dynamic package types or paths? No.</h3>
+
+<p>What are they? The ability for a package author to determine where a package
+will be installed either through setting the path directly in their
+<code>composer.json</code> or through a dynamic package type: <code>"type":
+"framework-install-here"</code>.</p>
+
+<p>It has been proposed many times. Even implemented once early on and then
+removed. <code>installers</code> won't do this because it would allow a single package
+author to wipe out entire folders without the user's consent. That user would
+then come here to yell at us.</p>
       </section>
     </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/shama">shama</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">composer/installers maintained by <a href="https://github.com/michaelm260">michaelm260</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -333,6 +346,7 @@ which we borrowed from Symfony.</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
